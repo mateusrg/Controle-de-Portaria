@@ -1,21 +1,21 @@
-import { query as _query } from '../config/db';
+const connection = require('../config/db');
 
-export function criarBox(req, res) {
+exports.criarBox = (req, res) => {
     const { idApartamento } = req.body;
     const query = 'INSERT INTO Boxes (id_apartamento) VALUES (?)';
     const params = [idApartamento];
 
-    _query(query, params, (err, results) => {
+    connection.query(query, params, (err, results) => {
         if (err) {
             return res.status(500).json({ success: false, message: 'Erro ao cadastrar box.'});
         }
-        res.json({ success: true, message: 'Box cadastrado com sucesso!'});
+        res.json({ success: true, message: 'Box cadastrado com sucesso!', data: results.insertId});
     });
 }
 
-export function listarBoxes(req, res) {
-    const query = 'SELECT * FROM Boxes B JOIN Apartamentos A ON B.id_apartamento = A.id_apartamento';
-    _query(query, (err, results) => {
+exports.listarBoxes = (req, res) => {
+    const query = 'SELECT * FROM Boxes B JOIN Apartamentos A ON B.id_apartamento = A.id_apartamento JOIN Veiculos V ON V.id_box = B.id_box';
+    connection.query(query, (err, results) => {
         if (err) {
             return res.status(500).json({ success: false, message: 'Erro ao selecionar os boxes.'});
         }
@@ -23,19 +23,19 @@ export function listarBoxes(req, res) {
     });
 }
 
-export function selecionarBoxPorId(req, res) {
-    const query = 'SELECT * FROM Boxes B JOIN Apartamentos A ON B.id_apartamento = A.id_apartamento WHERE id_box = ?';
+exports.selecionarBoxPorId = (req, res) => {
+    const query = 'SELECT * FROM Boxes B JOIN Apartamentos A ON B.id_apartamento = A.id_apartamento JOIN Veiculos V ON V.id_box = B.id_box WHERE id_box = ?';
     const params = [req.params.idBox];
     connection.query(query, params, (err, results) => {
         if (err) {
             return res.status(500).json({ success: false, message: 'Erro ao selecionar box.' });
         }
-        res.json({ success: true, data: results });
+        res.json({ success: true, data: results[0] });
     });
 }
 
-export function listarBoxesPorApartamento(req, res) {
-    const query = 'SELECT * FROM Boxes B JOIN Apartamentos A ON B.id_apartamento = A.id_apartamento WHERE id_apartamento = ?';
+exports.listarBoxesPorApartamento = (req, res) => {
+    const query = 'SELECT * FROM Boxes B JOIN Apartamentos A ON B.id_apartamento = A.id_apartamento JOIN Veiculos V ON V.id_box = B.id_box WHERE id_apartamento = ?';
     const params = [req.params.idApartamento];
     connection.query(query, params, (err, results) => {
         if (err) {
@@ -45,13 +45,13 @@ export function listarBoxesPorApartamento(req, res) {
     });
 }
 
-export function atualizarBox(req, res) {
+exports.atualizarBox = (req, res) => {
     const { idApartamento } = req.body;
     const { idBox } = req.params;
     const query = 'UPDATE Boxes SET id_apartamento = ? WHERE id_box = ?';
     const params = [idApartamento, idBox];
 
-    _query(query, params, (err, results) => {
+    connection.query(query, params, (err, results) => {
         if (err || results.length == 0) {
             return res.status(500).json({ success: false, message: 'Erro ao atualizar o box.'});
         }
@@ -59,11 +59,11 @@ export function atualizarBox(req, res) {
     });
 }
 
-export function deletarBox(req, res) {
+exports.deletarBox = (req, res) => {
     const query = 'DELETE FROM Boxes WHERE id_box = ?';
     const params = [req.params.idBox];
 
-    _query(query, params, (err, results) => {
+    connection.query(query, params, (err, results) => {
         if (err) {
             return res.status(500).json({ success: false, message: 'Erro ao deletar o box.'});
         }
