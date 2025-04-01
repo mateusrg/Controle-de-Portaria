@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartamentos</title>
+    <link rel="stylesheet" href="../css/condominio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inder&family=Krona+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Controle de Portaria</h1>
+        <div id="div-nav">
+          <a href="condominio.html" id="nav-marcada">Apartamentos</a>
+          <a href="index.html">Veículos</a>
+        </div>
+      </header>
+    <main>
+        <div id="div-condominio">
+            <h2 id="titulo-condominio">Condomínio</h2>
+            <div id="secao-condominio">
+                <div id="secao-blocos">
+                    <button onclick="mostrarSection('A')" class="bloco" id="bloco-1">Bloco A</button>
+                    <button onclick="mostrarSection('B')" class="bloco" id="bloco-2">Bloco B</button>
+                    <button onclick="mostrarSection('C')" class="bloco" id="bloco-3">Bloco C</button>
+                    <button onclick="mostrarSection('D')" class="bloco" id="bloco-4">Bloco D</button>
+                    <button onclick="mostrarSection('E')" class="bloco" id="bloco-5">Bloco E</button>
+                    <button onclick="mostrarSection('F')" class="bloco" id="bloco-6">Bloco F</button>
+                </div>
+            </div>
+        </div>
+        <div id="main-section" class="main-section">
+            <h2 id="titulo-apartamento">Apartamentos Bloco A</h2>
+            <div id="linha">
+                <div class="grid">
+                    <button id="apto1">A101</button>
+                    <button id="apto2">A102</button>
+                    <button id="apto3">A103</button>
+                    <button id="apto4">A201</button>
+                    <button id="apto5">A202</button>
+                    <button id="apto6">A203</button>
+                    <button id="apto7">A301</button>
+                    <button id="apto8">A302</button>
+                    <button id="apto9">A303</button>
+                    <button id="apto10">A401</button>
+                    <button id="apto11">A402</button>
+                    <button id="apto12">A403</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

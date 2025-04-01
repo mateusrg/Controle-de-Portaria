@@ -1,0 +1,183 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    text-align: center;
+    font-family: "Inder", sans-serif;
+    background-color: #F7FFED;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #183D41;
+    height: 13vh;
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-family: "Krona One", sans-serif;
+}
+
+h1 {
+    color: white;
+    font-size: 2.43vw;
+}
+
+#div-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.63vw;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    padding: 1vh 2vw;
+    font-size: 15px;
+}
+
+#nav-marcada {
+    background-color: #135068;
+}
+
+#nav-marcada:hover {
+    transition: background 0.5s ease-in-out;
+    background-color: #1a7193;
+}
+
+a:hover {
+    transition: filter 0.5s ease-in-out, background 0.5s ease-in-out;
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
+    background-color: #1a7193;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8vw;
+    height: 87vh;
+}
+
+#div-condominio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 65vh;
+}
+
+#titulo-condominio {
+    font-size: 40px;
+    font-family: "Krona One", sans-serif;
+}
+
+#secao-condominio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a8b4ac;
+    padding: 2vh;
+    height: 45vh;
+    width: 34vw;
+    border-radius: 10px;
+    height: auto;
+    width: auto;
+}
+
+#secao-blocos {
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 9.25vw);
+    grid-template-rows: repeat(3, 15.82vh);
+    grid-template-areas:
+    "bloco-1 bloco-1 bloco-4 bloco-5"
+    "bloco-2 bloco-3 bloco-4 bloco-5"
+    "bloco-2 bloco-3 bloco-6 bloco-6"
+    ;
+    grid-column-gap: 1.25vw;
+    grid-row-gap: 1.66vh;
+}
+
+#bloco-1 {
+    grid-area: bloco-1;
+    border-top-left-radius: 10px;
+}
+
+#bloco-2 {
+    grid-area: bloco-2;
+    border-bottom-left-radius: 10px;
+}
+
+#bloco-3 {
+    grid-area: bloco-3;
+}
+
+#bloco-4 {
+    grid-area: bloco-4;
+}
+
+#bloco-5 {
+    grid-area: bloco-5;
+    border-top-right-radius: 10px;
+}
+
+#bloco-6 {
+    grid-area: bloco-6;
+    border-bottom-right-radius: 10px;
+}
+
+.bloco {
+    border: 2px solid black;
+    font-size: 25px;
+    background-color: #a8b4ac;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+
+.bloco:hover {
+    transition: background 0.5s ease-in-out;
+    background-color: #83ccc5;
+}
+
+.main-section {
+    display: none;
+    margin-top: 7.5vh;
+}
+
+#titulo-apartamento {
+    font-size: 30px;
+    font-family: "Krona One", sans-serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    text-align: center;
+    height: 50vh;
+    width: 25vw;
+    gap: 1vh;
+}
+
+#linha {
+    margin-left: 0.3vw;
+    background-color: #a8b4ac;
+    padding: 1vh;
+    height: 50vh;
+    width: 25vw;
+    border: 2px solid black;
+    border-radius: 10px;
+}

@@ -1,0 +1,155 @@
+body {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-family: "Inder", sans-serif;
+  background-color: #F7FFED;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #183D41;
+  height: 13vh;
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-family: "Krona One", sans-serif;
+}
+
+h1 {
+  color: white;
+  font-size: 2.43vw;
+}
+
+#div-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.63vw;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  border: 2px solid white;
+  padding: 1vh 2vw;
+  font-size: 15px;
+}
+
+#nav-marcada {
+  background-color: #135068;
+}
+
+#nav-marcada:hover {
+  transition: background 0.5s ease-in-out;
+  background-color: #1a7193;
+}
+
+a:hover {
+  transition: filter 0.5s ease-in-out, background 0.5s ease-in-out;
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
+  background-color: #1a7193;
+}
+
+#secao-blocos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 92.29vw;
+  gap: 3.61vh;
+  height: auto;
+  padding-bottom: 6vh;
+}
+
+.bloco {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+#bloco-a-2,
+#bloco-b-2,
+#bloco-c-2,
+#bloco-d-2,
+#bloco-e-2,
+#bloco-f-2 {
+  display: none;
+}
+
+.texto-bloco {
+  font-family: "Krona One", sans-serif;
+  color: black;
+  font-size: 25px;
+}
+
+.secao-vagas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+  width: 100%;
+}
+
+.vaga {
+  height: 23.33vh;
+  width: 9.16vw;
+  background-color: #c6eabf;
+  border: 2px dashed black;
+  border-radius: 10px;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.carro {
+  width: 5.97vw;
+}
+
+.texto-vaga-ocupada {
+  position: absolute;
+  top: 0;
+  background-color: white;
+  border: 2px solid black;
+  padding: 0 0.8vw;
+  border-radius: 10px;
+  margin-top: -10px;
+}
+
+.texto-placa {
+  position: absolute;
+  bottom: 0;
+  background-color: white;
+  border: 2px solid black;
+  padding: 0 0.8vw;
+  border-radius: 10px;
+  margin-bottom: -7.5px;
+  font-size: 15px;
+}
+
+.texto-vaga-desocupada {
+  display: none;
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.seta-proximo {
+  width: 2.22vw;
+}
+
+.seta-volta {
+  width: 2.22vw;
+  transform: rotate(180deg);
+}
