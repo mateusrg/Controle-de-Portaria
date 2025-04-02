@@ -17,3 +17,15 @@ function mostrarSection(bloco) {
     apartamentos.style.display = "flex";
     titulo.textContent = `Apartamentos Bloco ${bloco}`;
 }
+
+function mostrarModal(apto) {
+    const modal = document.getElementById("modal");
+    const titulo2 = document.getElementById("titulo-moradores");
+    modal.style.display = "none";
+    modal.style.display = "block";
+    titulo2.textContent = `Moradores ${apto}`;
+}
+
+closeModal.onclick = function() {
+    modal.style.display = "none";
+}
