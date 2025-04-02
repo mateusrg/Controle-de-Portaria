@@ -1,3 +1,5 @@
+// Condomínio
+
 function mostrarSection(bloco) {
     const apartamentos = document.getElementById("div-apartamento");
     const titulo = document.getElementById("titulo-apartamento");
@@ -20,12 +22,15 @@ function mostrarSection(bloco) {
 
 function mostrarModal(apto) {
     const modal = document.getElementById("modal");
-    const titulo2 = document.getElementById("titulo-moradores");
+    const titulo = document.getElementById("titulo-moradores");
     modal.style.display = "none";
     modal.style.display = "block";
-    titulo2.textContent = `Moradores ${apto}`;
+    titulo.textContent = `Moradores ${apto}`;
 }
 
-closeModal.onclick = function() {
+document.getElementById("closeModal").addEventListener("click", () => {
     modal.style.display = "none";
-}
+})
+
+// Vagas
+
