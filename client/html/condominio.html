@@ -35,21 +35,29 @@
             <h2 id="titulo-apartamento">Apartamentos Bloco A</h2>
             <div id="linha">
                 <div class="grid">
-                    <button id="apto1">A101</button>
-                    <button id="apto2">A102</button>
-                    <button id="apto3">A103</button>
-                    <button id="apto4">A201</button>
-                    <button id="apto5">A202</button>
-                    <button id="apto6">A203</button>
-                    <button id="apto7">A301</button>
-                    <button id="apto8">A302</button>
-                    <button id="apto9">A303</button>
-                    <button id="apto10">A401</button>
-                    <button id="apto11">A402</button>
-                    <button id="apto12">A403</button>
+                    <button onclick="mostrarModal('#101')" class="apto" id="apto-1">101</button>
+                    <button onclick="mostrarModal('#102')" class="apto" id="apto-2">102</button>
+                    <button onclick="mostrarModal('#103')" class="apto" id="apto-3">103</button>
+                    <button onclick="mostrarModal('#201')" class="apto" id="apto-4">201</button>
+                    <button onclick="mostrarModal('#202')" class="apto" id="apto-5">202</button>
+                    <button onclick="mostrarModal('#203')" class="apto" id="apto-6">203</button>
+                    <button onclick="mostrarModal('#301')" class="apto" id="apto-7">301</button>
+                    <button onclick="mostrarModal('#302')" class="apto" id="apto-8">302</button>
+                    <button onclick="mostrarModal('#303')" class="apto" id="apto-9">303</button>
+                    <button onclick="mostrarModal('#401')" class="apto" id="apto-10">401</button>
+                    <button onclick="mostrarModal('#402')" class="apto" id="apto-11">402</button>
+                    <button onclick="mostrarModal('#403')" class="apto" id="apto-12">403</button>
                 </div>
             </div>
         </div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span id="closeModal" class="close">&times;</span>
+                <h2 id="titulo-moradores">Moradores #101</h2>
+            </div>
+        </div>
+
     </main>
 
     <script src="../js/script.js"></script>
