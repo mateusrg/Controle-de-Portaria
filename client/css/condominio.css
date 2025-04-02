@@ -157,7 +157,6 @@ main {
 }
 
 #titulo-apartamento {
-    margin-bottom: 4vh;
     font-size: 30px;
     font-family: "Krona One", sans-serif;
 }
@@ -173,7 +172,6 @@ main {
 }
 
 #linha {
-    margin-left: 4vw;
     background-color: #a8b4ac;
     padding: 1vh;
     height: 50vh;
