@@ -252,6 +252,12 @@ main {
     font-family: "Inder", sans-serif;
     font-size: 1.2vw;
     background-color: #a8b4ac;
+    cursor: pointer;
+}
+
+.botao-apartamento:hover {
+    transition: background 0.5s ease-in-out;
+    background-color: #83ccc5;
 }
 
 #secao-lista-menor {
