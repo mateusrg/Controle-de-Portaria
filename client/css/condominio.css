@@ -329,16 +329,14 @@ main {
 
 .modal-content {
     margin: 15vh auto;
-    background-color: #a8b4ac;
+    background: linear-gradient(to bottom, #183D41 18%, #a8b4ac 0%);
     padding: 2vw;
-    border-top: 70px solid #183D41;
     width: 70%;
-    height: 55vh;
+    height: 65vh;
     border-radius: 10px;
 }
 
 .close {
-    margin-top: -13.5vh;
     color: #ffffff;
     float: right;
     font-size: 28px;
@@ -353,6 +351,5 @@ main {
 }
 
 #titulo-moradores{
-    margin-top: -12.5vh;
     color: white;
 }
