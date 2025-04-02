@@ -42,7 +42,7 @@ a {
     color: white;
     border: 2px solid white;
     padding: 1vh 2vw;
-    font-size: 15px;
+    font-size: 1vw;
 }
 
 #nav-marcada {
@@ -73,12 +73,13 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 65vh;
+    height: auto;
 }
 
 #titulo-condominio {
-    font-size: 40px;
+    font-size: 2.5vw;
     font-family: "Krona One", sans-serif;
+    padding-bottom: 2vh;
 }
 
 #secao-condominio {
@@ -140,11 +141,12 @@ main {
 
 .bloco {
     border: 2px solid black;
-    font-size: 25px;
+    font-size: 1.5vw;
     background-color: #a8b4ac;
     cursor: pointer;
     height: 100%;
     width: 100%;
+    font-family: "Inder", sans-serif;
 }
 
 .bloco:hover {
@@ -152,32 +154,162 @@ main {
     background-color: #83ccc5;
 }
 
-.main-section {
+#div-apartamento {
     display: none;
-    margin-top: 7.5vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    transition: 3s;
 }
 
 #titulo-apartamento {
-    font-size: 30px;
+    font-size: 2vw;
     font-family: "Krona One", sans-serif;
+    padding-bottom: 2vh;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    text-align: center;
-    height: 50vh;
-    width: 25vw;
-    gap: 1vh;
-}
-
-#linha {
-    margin-left: 0.3vw;
+#secao-apartamento {
     background-color: #a8b4ac;
     padding: 1vh;
     height: 50vh;
     width: 25vw;
     border: 2px solid black;
     border-radius: 10px;
+}
+
+#secao-lista-maior {
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "apto1-maior apto2-maior apto3-maior"
+    "apto4-maior apto5-maior apto6-maior"
+    "apto7-maior apto8-maior apto9-maior"
+    "apto10-maior apto11-maior apto12-maior"
+    ;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    gap: 1vh;
+}
+
+#apto1-maior {
+    grid-area: apto1-maior;
+    border-top-left-radius: 10px;
+}
+
+#apto2-maior {
+    grid-area: apto2-maior;
+}
+
+#apto3-maior {
+    grid-area: apto3-maior;
+    border-top-right-radius: 10px;
+}
+
+#apto4-maior {
+    grid-area: apto4-maior;
+}
+
+#apto5-maior {
+    grid-area: apto5-maior;
+}
+
+#apto6-maior {
+    grid-area: apto6-maior;
+}
+#apto7-maior {
+    grid-area: apto7-maior;
+}
+
+#apto8-maior {
+    grid-area: apto8-maior;
+}
+
+#apto9-maior {
+    grid-area: apto9-maior;
+}
+
+#apto10-maior {
+    grid-area: apto10-maior;
+    border-bottom-left-radius: 10px;
+}
+
+#apto11-maior {
+    grid-area: apto11-maior;
+}
+
+#apto12-maior {
+    grid-area: apto12-maior;
+    border-bottom-right-radius: 10px;
+}
+
+.botao-apartamento {
+    height: 100%;
+    width: 100%;
+    border: 2px solid black;
+    font-family: "Inder", sans-serif;
+    font-size: 1.2vw;
+    background-color: #a8b4ac;
+}
+
+#secao-lista-menor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "apto1-menor apto2-menor"
+    "apto3-menor apto4-menor"
+    "apto5-menor apto6-menor"
+    "apto7-menor apto8-menor"
+    "apto9-menor apto10-menor"
+    ;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    gap: 1vh;
+}
+
+#apto1-menor {
+    grid-area: apto1-menor;
+    border-top-left-radius: 10px;
+}
+
+#apto2-menor {
+    grid-area: apto2-menor;
+    border-top-right-radius: 10px;
+}
+
+#apto3-menor {
+    grid-area: apto3-menor;
+}
+
+#apto4-menor {
+    grid-area: apto4-menor;
+}
+
+#apto5-menor {
+    grid-area: apto5-menor;
+}
+
+#apto6-menor {
+    grid-area: apto6-menor;
+}
+#apto7-menor {
+    grid-area: apto7-menor;
+}
+
+#apto8-menor {
+    grid-area: apto8-menor;
+}
+
+#apto9-menor {
+    grid-area: apto9-menor;
+    border-bottom-left-radius: 10px;
+}
+
+#apto10-menor {
+    grid-area: apto10-menor;
+    border-bottom-right-radius: 10px;
 }
