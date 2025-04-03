@@ -11,6 +11,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    position: relative;
 }
 
 header {
@@ -320,12 +321,10 @@ main {
     border-bottom-right-radius: 10px;
 }
 
-.modal {
+#blur {
     display: none;
-    justify-content: center;
-    align-items: center;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     left: 0;
     top: 0;
     width: 100%;
@@ -333,43 +332,92 @@ main {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.modal-content {
-    margin: 15vh auto;
-    background: linear-gradient(to bottom, #183D41 18%, #a8b4ac 0%);
-    padding: 2vw;
-    width: 70%;
-    height: 65vh;
+#modal {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background-color: #a8b4ac;
+    padding-bottom: 2vh;
+    width: 70vw;
+    height: 75vh;
     border-radius: 10px;
+    z-index: 3;
 }
 
-.close {
-    height: 5.3vh;
+#div-titulo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #183D41;
+    width: 100%;
+    height: 8.3vh;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#fechar-modal {
     width: 2.5vw;
-    background-color: rgb(153, 1, 1);
-    border: 2px solid black;
     border-radius: 50%;
-    color: black;
-    float: right;
-    font-size: 35px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: white;
-    text-decoration: none;
+    position: absolute;
+    right: 0;
+    margin-right: 0.5vw;
+    cursor: pointer;
     cursor: pointer;
 }
 
-#titulo-moradores{
-    font-size: 35px;
-    color: white;
+#fechar-modal:hover {
+    filter: brightness(70%);
 }
 
-.moradores{
+#modal-titulo{
+    font-size: 1.5vw;
+    color: white;
+    font-family: "Krona One", sans-serif;
+}
+
+#lista-moradores{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    flex-wrap: wrap;
+    max-height: 50vh;
+    overflow-y: auto; 
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.card-morador {
     background: linear-gradient(to right, #183D41 15%, #6a8284 0%);
     height: 45vh;
-    width: 18vw;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
+    min-width: 18vw;
+}
+
+#modal-concluir {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background-color: #272829;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.04vw;
+    font-weight: 500;
+    color: #FFFFFF;
+    width: 24.3vw;
+    height: 4.1vh;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#modal-concluir:hover {
+    transition: background 2s ease-in-out;
+    background-color: #565859;
 }

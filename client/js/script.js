@@ -21,15 +21,28 @@ function mostrarSection(bloco) {
 }
 
 function mostrarModal(apto) {
+    const blur = document.getElementById("blur");
     const modal = document.getElementById("modal");
     const titulo = document.getElementById("titulo-moradores");
     modal.style.display = "none";
-    modal.style.display = "block";
+    blur.style.display = "none";
+    modal.style.display = "flex";
+    blur.style.display = "flex";
     titulo.textContent = `Moradores ${apto}`;
 }
 
-document.getElementById("closeModal").addEventListener("click", () => {
+document.getElementById("fechar-modal").addEventListener("click", () => {
+    const blur = document.getElementById("blur");
+    const modal = document.getElementById("modal");
     modal.style.display = "none";
+    blur.style.display = "none";
+})
+
+document.getElementById("blur").addEventListener("click", () => {
+    const blur = document.getElementById("blur");
+    const modal = document.getElementById("modal");
+    modal.style.display = "none";
+    blur.style.display = "none";
 })
 
 // Vagas

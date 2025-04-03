@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/condominio.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inder&family=Krona+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inder&family=Krona+One&&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -61,12 +61,21 @@
                     <button class="botao-apartamento" id="apto10-menor">A401</button>
                 </div>
             </section>
-            <div id="modal" class="modal">
-                <div class="modal-content" id="modal-content">
-                    <span id="closeModal" class="close">&times;</span>
-                    <h2 id="titulo-moradores">Moradores #101</h2>
+            <section id="modal">
+                <div id="div-titulo">
+                    <h3 id="modal-titulo">Moradores #A101</h3>
+                    <img id="fechar-modal" src="../assets/fechar.png" alt="Fechar">
                 </div>
-            </div>
+                <div id="lista-moradores">
+                    <!-- Cards dos Moradores -->
+                     <div class="card-morador"></div>
+                     <div class="card-morador"></div>
+                     <div class="card-morador"></div>
+                     <div class="card-morador"></div>
+                </div>
+                <button id="modal-concluir">CADASTRAR NOVO MORADOR</button>
+            </section>
+            <section id="blur"></section>
         </div>
     </main>
 
