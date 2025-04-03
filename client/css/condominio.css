@@ -394,17 +394,69 @@ main {
 }
 
 .card-morador {
+    padding-left: 2.5vw;
+    display: flex;
+    justify-content: center;
+    align-items:center;
     background: linear-gradient(to right, #183D41 15%, #6a8284 0%);
     height: 45vh;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
-    min-width: 18vw;
+    min-width: 16vw;
+}
+
+.card-titulo{
+    font-size: 1.5vw;
+    font-weight: 500;
+    color: #FFFFFF;
+    font-family: "Krona One", sans-serif;
+}
+
+.card-informacoes{
+    padding-top: 13vh;
+}
+
+.card-buttons{
+    padding-top: 5vh;
+}
+
+.card-button1{
+    padding-bottom: 1vh;
+}
+
+.card-editar{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    border: none;
+    background-color: #272829;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    height: 4.1vh;
+    width: 12vw;
+    font-size: 1vw;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.card-excluir{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    background-color: #6a8284;
+    font-family: "Roboto", sans-serif;
+    height: 4.1vh;
+    width: 12vw;
+    font-size: 1vw;
+    font-weight: 500;
+    border-radius: 4px;
 }
 
 #modal-concluir {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     border: 0;
     background-color: #272829;
     font-family: "Roboto", sans-serif;
