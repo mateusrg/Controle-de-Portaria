@@ -31,7 +31,7 @@ exports.selecionarApartamentoPorId = (req, res) => {
         if (err) {
             return res.status(500).json({ success: false, message: 'Erro ao selecionar os apartamentos.'});
         }
-        res.json({ success: true, message: 'Apartamentos selecionados com sucesso!', data: results[0] });
+        res.json({ success: true, message: 'Apartamento selecionado com sucesso!', data: results[0] });
     });
 }
 

@@ -14,7 +14,7 @@ exports.criarVeiculo = (req, res) => {
 }
 
 exports.listarVeiculos = (req, res) => {
-    const query = 'SELECT * FROM Veiculos V JOIN Moradores M ON V.id_morador = M.id_morador JOIN Boxes B ON V.id_box = B.id_box JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento';
+    const query = 'SELECT V.id_veiculo, M.id_morador, B.id_box, V.placa, V.modelo, V.cor, V.criado_em, A.id_apartamento, M.nome, M.telefone, M.email, M.status, M.criado_em AS morador_criado_em, A.bloco, A.numeracao FROM Veiculos V LEFT JOIN Moradores M ON V.id_morador = M.id_morador LEFT JOIN Boxes B ON V.id_box = B.id_box LEFT JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento';
     connection.query(query, (err, results) => {
         if (err) {
             return res.status(500).json({ success: false, message: 'Erro ao selecionar os veículos.'});
@@ -24,7 +24,7 @@ exports.listarVeiculos = (req, res) => {
 }
 
 exports.selecionarVeiculoPorId = (req, res) => {
-    const query = 'SELECT * FROM Veiculos V JOIN Moradores M ON V.id_morador = M.id_morador JOIN Boxes B ON V.id_box = B.id_box JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE id_veiculo = ?';
+    const query = 'SELECT V.id_veiculo, M.id_morador, B.id_box, V.placa, V.modelo, V.cor, V.criado_em, A.id_apartamento, M.nome, M.telefone, M.email, M.status, M.criado_em AS morador_criado_em, A.bloco, A.numeracao FROM Veiculos V LEFT JOIN Moradores M ON V.id_morador = M.id_morador LEFT JOIN Boxes B ON V.id_box = B.id_box LEFT JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE V.id_veiculo = ?';
     const params = [req.params.idVeiculo];
     connection.query(query, params, (err, results) => {
         if (err) {
@@ -35,7 +35,7 @@ exports.selecionarVeiculoPorId = (req, res) => {
 }
 
 exports.listarVeiculosPorMorador = (req, res) => {
-    const query = 'SELECT * FROM Veiculos V JOIN Moradores M ON V.id_morador = M.id_morador JOIN Boxes B ON V.id_box = B.id_box JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE id_morador = ?';
+    const query = 'SELECT V.id_veiculo, M.id_morador, B.id_box, V.placa, V.modelo, V.cor, V.criado_em, A.id_apartamento, M.nome, M.telefone, M.email, M.status, M.criado_em AS morador_criado_em, A.bloco, A.numeracao FROM Veiculos V LEFT JOIN Moradores M ON V.id_morador = M.id_morador LEFT JOIN Boxes B ON V.id_box = B.id_box LEFT JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE M.id_morador = ?';
     const params = [req.params.idMorador];
     connection.query(query, params, (err, results) => {
         if (err) {
@@ -46,7 +46,7 @@ exports.listarVeiculosPorMorador = (req, res) => {
 }
 
 exports.selecionarVeiculoPorBox = (req, res) => {
-    const query = 'SELECT * FROM Veiculos V JOIN Moradores M ON V.id_morador = M.id_morador JOIN Boxes B ON V.id_box = B.id_box JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE id_box = ?';
+    const query = 'SELECT V.id_veiculo, M.id_morador, B.id_box, V.placa, V.modelo, V.cor, V.criado_em, A.id_apartamento, M.nome, M.telefone, M.email, M.status, M.criado_em AS morador_criado_em, A.bloco, A.numeracao FROM Veiculos V LEFT JOIN Moradores M ON V.id_morador = M.id_morador LEFT JOIN Boxes B ON V.id_box = B.id_box LEFT JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE B.id_box = ?';
     const params = [req.params.idBox];
     connection.query(query, params, (err, results) => {
         if (err) {
@@ -57,7 +57,7 @@ exports.selecionarVeiculoPorBox = (req, res) => {
 }
 
 exports.selecionarVeiculoPorPlaca = (req, res) => {
-    const query = 'SELECT * FROM Veiculos V JOIN Moradores M ON V.id_morador = M.id_morador JOIN Boxes B ON V.id_box = B.id_box JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE placa = ?';
+    const query = 'SELECT V.id_veiculo, M.id_morador, B.id_box, V.placa, V.modelo, V.cor, V.criado_em, A.id_apartamento, M.nome, M.telefone, M.email, M.status, M.criado_em AS morador_criado_em, A.bloco, A.numeracao FROM Veiculos V LEFT JOIN Moradores M ON V.id_morador = M.id_morador LEFT JOIN Boxes B ON V.id_box = B.id_box LEFT JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE V.placa = ?';
     const params = [req.params.placa];
     connection.query(query, params, (err, results) => {
         if (err) {
@@ -68,7 +68,7 @@ exports.selecionarVeiculoPorPlaca = (req, res) => {
 }
 
 exports.listarVeiculosPorModelo = (req, res) => {
-    const query = 'SELECT * FROM Veiculos V JOIN Moradores M ON V.id_morador = M.id_morador JOIN Boxes B ON V.id_box = B.id_box JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE modelo = ?';
+    const query = 'SELECT V.id_veiculo, M.id_morador, B.id_box, V.placa, V.modelo, V.cor, V.criado_em, A.id_apartamento, M.nome, M.telefone, M.email, M.status, M.criado_em AS morador_criado_em, A.bloco, A.numeracao FROM Veiculos V LEFT JOIN Moradores M ON V.id_morador = M.id_morador LEFT JOIN Boxes B ON V.id_box = B.id_box LEFT JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE V.modelo = ?';
     const params = [req.params.placa];
     connection.query(query, params, (err, results) => {
         if (err) {

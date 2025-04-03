@@ -14,7 +14,7 @@ exports.criarMorador = (req, res) => {
 }
 
 exports.listarMoradores = (req, res) => {
-    const query = 'SELECT * FROM Moradores M JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento';
+    const query = 'SELECT * FROM Moradores M LEFT JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento';
     connection.query(query, (err, results) => {
         if (err) {
             return res.status(500).json({ success: false, message: 'Erro ao selecionar os moradores.'});
@@ -24,7 +24,7 @@ exports.listarMoradores = (req, res) => {
 }
 
 exports.selecionarMoradorPorId = (req, res) => {
-    const query = 'SELECT * FROM Moradores M JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE id_morador = ?';
+    const query = 'SELECT * FROM Moradores M LEFT JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE M.id_morador = ?';
     const params = [req.params.idMorador];
     connection.query(query, params, (err, results) => {
         if (err) {
@@ -35,7 +35,7 @@ exports.selecionarMoradorPorId = (req, res) => {
 }
 
 exports.listarMoradoresPorApartamento = (req, res) => {
-    const query = 'SELECT * FROM Moradores M JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE id_apartamento = ?';
+    const query = 'SELECT * FROM Moradores M LEFT JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE A.id_apartamento = ?';
     const params = [req.params.idApartamento];
     connection.query(query, params, (err, results) => {
         if (err) {
@@ -46,7 +46,7 @@ exports.listarMoradoresPorApartamento = (req, res) => {
 }
 
 exports.listarMoradoresPorNome = (req, res) => {
-    const query = 'SELECT * FROM Moradores M JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE nome = ?';
+    const query = 'SELECT * FROM Moradores M LEFT JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE M.nome = ?';
     const params = [req.params.nome];
     connection.query(query, params, (err, results) => {
         if (err) {
@@ -57,7 +57,7 @@ exports.listarMoradoresPorNome = (req, res) => {
 }
 
 exports.listarMoradoresPorTelefone = (req, res) => {
-    const query = 'SELECT * FROM Moradores M JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE telefone = ?';
+    const query = 'SELECT * FROM Moradores M LEFT JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE M.telefone = ?';
     const params = [req.params.telefone];
     connection.query(query, params, (err, results) => {
         if (err) {
@@ -68,7 +68,7 @@ exports.listarMoradoresPorTelefone = (req, res) => {
 }
 
 exports.listarMoradoresPorEmail = (req, res) => {
-    const query = 'SELECT * FROM Moradores M JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE email = ?';
+    const query = 'SELECT * FROM Moradores M LEFT JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE M.email = ?';
     const params = [req.params.email];
     connection.query(query, params, (err, results) => {
         if (err) {
@@ -79,7 +79,7 @@ exports.listarMoradoresPorEmail = (req, res) => {
 }
 
 exports.listarMoradoresPorStatus = (req, res) => {
-    const query = 'SELECT * FROM Moradores M JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE status = ?';
+    const query = 'SELECT * FROM Moradores M LEFT JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento WHERE M.status = ?';
     const params = [req.params.status];
     connection.query(query, params, (err, results) => {
         if (err) {
@@ -91,7 +91,7 @@ exports.listarMoradoresPorStatus = (req, res) => {
 
 exports.pesquisarMoradores = (req, res) => {
     const { pesquisa } = req.body;
-    const query = `SELECT * FROM Moradores M JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento
+    const query = `SELECT * FROM Moradores M LEFT JOIN Apartamentos A ON M.id_apartamento = A.id_apartamento
         OR M.id_morador = ?
         OR M.id_apartamento = ?
         OR M.nome LIKE '%?%'

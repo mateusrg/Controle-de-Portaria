@@ -14,7 +14,7 @@ exports.criarBox = (req, res) => {
 }
 
 exports.listarBoxes = (req, res) => {
-    const query = 'SELECT * FROM Boxes B JOIN Apartamentos A ON B.id_apartamento = A.id_apartamento JOIN Veiculos V ON V.id_box = B.id_box';
+    const query = 'SELECT B.id_box, A.id_apartamento, A.bloco, A.numeracao, V.id_veiculo, V.id_morador, V.placa, V.modelo, V.cor, V.criado_em FROM Boxes B LEFT JOIN Apartamentos A ON B.id_apartamento = A.id_apartamento LEFT JOIN Veiculos V ON V.id_box = B.id_box';
     connection.query(query, (err, results) => {
         if (err) {
             return res.status(500).json({ success: false, message: 'Erro ao selecionar os boxes.'});
@@ -24,7 +24,7 @@ exports.listarBoxes = (req, res) => {
 }
 
 exports.selecionarBoxPorId = (req, res) => {
-    const query = 'SELECT * FROM Boxes B JOIN Apartamentos A ON B.id_apartamento = A.id_apartamento JOIN Veiculos V ON V.id_box = B.id_box WHERE id_box = ?';
+    const query = 'SELECT B.id_box, A.id_apartamento, A.bloco, A.numeracao, V.id_veiculo, V.id_morador, V.placa, V.modelo, V.cor, V.criado_em FROM Boxes B LEFT JOIN Apartamentos A ON B.id_apartamento = A.id_apartamento LEFT JOIN Veiculos V ON V.id_box = B.id_box WHERE B.id_box = ?';
     const params = [req.params.idBox];
     connection.query(query, params, (err, results) => {
         if (err) {
@@ -35,7 +35,7 @@ exports.selecionarBoxPorId = (req, res) => {
 }
 
 exports.listarBoxesPorApartamento = (req, res) => {
-    const query = 'SELECT * FROM Boxes B JOIN Apartamentos A ON B.id_apartamento = A.id_apartamento JOIN Veiculos V ON V.id_box = B.id_box WHERE id_apartamento = ?';
+    const query = 'SELECT B.id_box, A.id_apartamento, A.bloco, A.numeracao, V.id_veiculo, V.id_morador, V.placa, V.modelo, V.cor, V.criado_em FROM Boxes B LEFT JOIN Apartamentos A ON B.id_apartamento = A.id_apartamento LEFT JOIN Veiculos V ON V.id_box = B.id_box WHERE A.id_apartamento = ?';
     const params = [req.params.idApartamento];
     connection.query(query, params, (err, results) => {
         if (err) {

@@ -8,8 +8,10 @@ class Morador {
     #email;
     #status;
     #criadoEm;
+    #bloco;
+    #numeracao;
 
-    constructor({ idMorador, idApartamento, nome, telefone, email, status, criadoEm }) {
+    constructor({ idMorador, idApartamento, nome, telefone, email, status, criadoEm, bloco, numeracao }) {
         this.#idMorador = idMorador;
         this.#idApartamento = idApartamento;
         this.#nome = nome;
@@ -17,6 +19,8 @@ class Morador {
         this.#email = email;
         this.#status = status;
         this.#criadoEm = criadoEm;
+        this.#bloco = bloco;
+        this.#numeracao = numeracao;
     }
 
     get idMorador() {
@@ -45,6 +49,14 @@ class Morador {
 
     get criadoEm() {
         return this.#criadoEm;
+    }
+
+    get bloco() {
+        return this.#bloco;
+    }
+
+    get numeracao() {
+        return this.#numeracao;
     }
 
     async setIdApartamento(idApartamento) {
@@ -138,7 +150,30 @@ class Morador {
         return result;
     }
 
-    static async criar(idApartamento, nome, telefone, email, status, criadoEm) {
+    static async selecionarPorId(idMorador) {
+        const response = await fetch(`${urlBase}/morador/selecionarPorId/${idMorador}`);
+        const result = await response.json();
+
+        if (!result.success || result.data == null) {
+            return null;
+        }
+
+        const morador = result.data;
+        
+        return new Morador({
+            idMorador: morador['id_morador'],
+            idApartamento: morador['id_apartamento'],
+            nome: morador['nome'],
+            telefone: morador['telefone'],
+            email: morador['email'],
+            status: morador['status'],
+            criadoEm: morador['criado_em'],
+            bloco: morador['bloco'],
+            numeracao: morador['numeracao']
+        });
+    }
+
+    static async cadastrar(idApartamento, nome, telefone, email, status, criadoEm) {
         const data = { idApartamento: idApartamento, nome: nome, telefone: telefone, email: email, status: status, criadoEm: criadoEm };
         const response = await fetch(`${urlBase}/morador`, {
             method: 'POST',
@@ -152,15 +187,8 @@ class Morador {
             return null;
         }
 
-        return new Morador({
-            idMorador: result.data,
-            idApartamento: idApartamento,
-            nome: nome,
-            telefone: telefone,
-            email: email,
-            status: status,
-            criadoEm: criadoEm
-        });
+        const morador = this.selecionarPorId(result.data);
+        return morador;
     }
 
     async editar(idApartamento, nome, telefone, email, status, criadoEm) {
@@ -197,8 +225,27 @@ class Morador {
             this.#telefone = null,
             this.#email = null,
             this.#status = null,
-            this.#criadoEm = null
+            this.#criadoEm = null,
+            this.#bloco = null,
+            this.#numeracao = null
         }
         return result;
     }
+
+    toString() {
+        return this.#idMorador == null ? null : `----------------------------
+ID do Morador: ${this.#idMorador}
+ID do Apartamento: ${this.#idApartamento}
+Nome: ${this.#nome}
+Telefone: ${this.#telefone}
+E-mail: ${this.#email}
+Status: ${this.status}
+Data de Criação: ${this.#criadoEm}
+Bloco: ${this.#bloco}
+Numeração: ${this.#numeracao}
+----------------------------
+`;
+    }
 }
+
+export default Morador;

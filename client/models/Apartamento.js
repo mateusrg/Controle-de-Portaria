@@ -53,7 +53,25 @@ class Apartamento {
     return result;
   }
 
-  static async criar(bloco, numeracao) {
+  static async selecionarPorId(idApartamento) {
+    const response = await fetch(`${urlBase}/apartamento/selecionarPorId/${idApartamento}`);
+    const result = await response.json();
+    
+    if (!result.success || result.data == null) {
+        return null;
+    }
+
+    const apartamento = result.data;
+    console.log(result);
+    
+    return new Apartamento({
+      idApartamento: apartamento['id_apartamento'],
+      bloco: apartamento['bloco'],
+      numeracao: apartamento['numeracao']
+    });
+}
+
+  static async cadastrar(bloco, numeracao) {
     const data = { bloco: bloco, numeracao: numeracao };
     const response = await fetch(`${urlBase}/apartamento`, {
       method: 'POST',
@@ -71,7 +89,7 @@ class Apartamento {
       idApartamento: result.data,
       bloco: bloco,
       numeracao: numeracao
-    })
+    });
   }
 
   async editar(bloco, numeracao) {
@@ -106,7 +124,13 @@ class Apartamento {
   }
 
   toString() {
-    return this.#idApartamento == null ? null : `[${this.#idApartamento}] ${this.#bloco}${this.#numeracao}`;
+    return `----------------------------
+ID do Apartamento: ${this.#idApartamento}
+Bloco: ${this.#bloco}
+Numeração: ${this.#numeracao}
+----------------------------
+`;
+
   }
 }
 

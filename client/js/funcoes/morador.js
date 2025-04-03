@@ -1,29 +1,45 @@
+import Morador from '../../models/Morador.js';
+
 const urlBase = 'http://localhost:3000';
 
 async function listarTodos() {
     const response = await fetch(`${urlBase}/morador`);
     const result = await response.json();
-    const moradores = result.data;
+    const moradoresJson = result.data;
+    let moradores = [];
+    moradoresJson.forEach(morador => moradores.push(new Morador({
+        idMorador: morador['id_morador'],
+        idApartamento: morador['id_apartamento'],
+        nome: morador['nome'],
+        telefone: morador['telefone'],
+        email: morador['email'],
+        status: morador['status'],
+        criadoEm: morador['criado_em'],
+        bloco: morador['bloco'],
+        numeracao: morador['numeracao'],
+    })));
     if (!result.success) {
         alert(result.message);
     }
     return moradores;
 }
 
-async function selecionarPorId(idMorador) {
-    const response = await fetch(`${urlBase}/morador/selecionarPorId/${idMorador}`);
-    const result = await response.json();
-    const apartamento = result.data;
-    if (!result.success) {
-        alert(result.message);
-    }
-    return apartamento;
-}
-
 async function listarPorApartamento(idApartamento) {
     const response = await fetch(`${urlBase}/morador/listarPorApartamento/${idApartamento}`);
     const result = await response.json();
-    const moradores = result.data;
+    const moradoresJson = result.data;
+    let moradores = [];
+    moradoresJson.forEach(morador => moradores.push(new Morador({
+        idMorador: morador['id_morador'],
+        idApartamento: morador['id_apartamento'],
+        nome: morador['nome'],
+        telefone: morador['telefone'],
+        email: morador['email'],
+        status: morador['status'],
+        criadoEm: morador['criado_em'],
+        bloco: morador['bloco'],
+        numeracao: morador['numeracao'],
+    })));
     if (!result.success) {
         alert(result.message);
     }
@@ -33,7 +49,19 @@ async function listarPorApartamento(idApartamento) {
 async function listarPorNome(nome) {
     const response = await fetch(`${urlBase}/morador/listarPorNome/${nome}`);
     const result = await response.json();
-    const moradores = result.data;
+    const moradoresJson = result.data;
+    let moradores = [];
+    moradoresJson.forEach(morador => moradores.push(new Morador({
+        idMorador: morador['id_morador'],
+        idApartamento: morador['id_apartamento'],
+        nome: morador['nome'],
+        telefone: morador['telefone'],
+        email: morador['email'],
+        status: morador['status'],
+        criadoEm: morador['criado_em'],
+        bloco: morador['bloco'],
+        numeracao: morador['numeracao'],
+    })));
     if (!result.success) {
         alert(result.message);
     }
@@ -48,16 +76,27 @@ async function pesquisar(pesquisa) {
         body: JSON.stringify(data),
     });
     const result = await response.json();
-    const moradores = result.data;
+    const moradoresJson = result.data;
+    let moradores = [];
+    moradoresJson.forEach(morador => moradores.push(new Morador({
+        idMorador: morador['id_morador'],
+        idApartamento: morador['id_apartamento'],
+        nome: morador['nome'],
+        telefone: morador['telefone'],
+        email: morador['email'],
+        status: morador['status'],
+        criadoEm: morador['criado_em'],
+        bloco: morador['bloco'],
+        numeracao: morador['numeracao'],
+    })));
     if (!result.success) {
         alert(result.message);
     }
     return moradores;
 }
 
-export {
+export default {
     listarTodos,
-    selecionarPorId,
     listarPorApartamento,
     listarPorNome,
     pesquisar
