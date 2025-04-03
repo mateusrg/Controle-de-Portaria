@@ -31,22 +31,40 @@
                 </div>
             </div>
         </div>
-        <div id="main-section" class="main-section">
+        <div id="div-apartamento">
             <h2 id="titulo-apartamento">Apartamentos Bloco A</h2>
-            <div id="linha">
-                <div class="grid">
-                    <button id="apto1">A101</button>
-                    <button id="apto2">A102</button>
-                    <button id="apto3">A103</button>
-                    <button id="apto4">A201</button>
-                    <button id="apto5">A202</button>
-                    <button id="apto6">A203</button>
-                    <button id="apto7">A301</button>
-                    <button id="apto8">A302</button>
-                    <button id="apto9">A303</button>
-                    <button id="apto10">A401</button>
-                    <button id="apto11">A402</button>
-                    <button id="apto12">A403</button>
+            <section id="secao-apartamento">
+                <div id="secao-lista-maior">
+                    <button  onclick="mostrarModal('#101')"class="botao-apartamento" id="apto1-maior">A101</button>
+                    <button  onclick="mostrarModal('#102')"class="botao-apartamento" id="apto2-maior">A102</button>
+                    <button  onclick="mostrarModal('#103')"class="botao-apartamento" id="apto3-maior">A103</button>
+                    <button  onclick="mostrarModal('#201')"class="botao-apartamento" id="apto4-maior">A201</button>
+                    <button  onclick="mostrarModal('#202')"class="botao-apartamento" id="apto5-maior">A202</button>
+                    <button  onclick="mostrarModal('#203')"class="botao-apartamento" id="apto6-maior">A203</button>
+                    <button  onclick="mostrarModal('#301')"class="botao-apartamento" id="apto7-maior">A301</button>
+                    <button  onclick="mostrarModal('#302')"class="botao-apartamento" id="apto8-maior">A302</button>
+                    <button  onclick="mostrarModal('#303')"class="botao-apartamento" id="apto9-maior">A303</button>
+                    <button  onclick="mostrarModal('#401')"class="botao-apartamento" id="apto10-maior">A401</button>
+                    <button  onclick="mostrarModal('#402')"class="botao-apartamento" id="apto11-maior">A402</button>
+                    <button  onclick="mostrarModal('#403')"class="botao-apartamento" id="apto12-maior">A403</button>
+                </div>
+                <div id="secao-lista-menor">
+                    <button class="botao-apartamento" id="apto1-menor">A101</button>
+                    <button class="botao-apartamento" id="apto2-menor">A102</button>
+                    <button class="botao-apartamento" id="apto3-menor">A103</button>
+                    <button class="botao-apartamento" id="apto4-menor">A201</button>
+                    <button class="botao-apartamento" id="apto5-menor">A202</button>
+                    <button class="botao-apartamento" id="apto6-menor">A203</button>
+                    <button class="botao-apartamento" id="apto7-menor">A301</button>
+                    <button class="botao-apartamento" id="apto8-menor">A302</button>
+                    <button class="botao-apartamento" id="apto9-menor">A303</button>
+                    <button class="botao-apartamento" id="apto10-menor">A401</button>
+                </div>
+            </section>
+            <div id="modal" class="modal">
+                <div class="modal-content" id="modal-content">
+                    <span id="closeModal" class="close">&times;</span>
+                    <h2 id="titulo-moradores">Moradores #101</h2>
                 </div>
             </div>
         </div>
