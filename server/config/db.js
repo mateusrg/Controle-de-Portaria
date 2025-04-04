@@ -1,8 +1,11 @@
+const senhaVictor = "root";
+const senhaMateus = "r3hcn@R3m1l5";
+
 const mysql = require("mysql2");
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "r3hcn@R3m1l5",
+    password: senhaVictor,
     database: "controle_portaria"
 });
 

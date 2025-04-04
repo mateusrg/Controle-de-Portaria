@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apartamentos</title>
     <link rel="stylesheet" href="../css/condominio.css">
+    <script type="module" src="../js/condominio.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inder&family=Krona+One&&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -22,12 +23,12 @@
             <h2 id="titulo-condominio">Condomínio</h2>
             <div id="secao-condominio">
                 <div id="secao-blocos">
-                    <button onclick="mostrarSection('A')" class="bloco" id="bloco-1">Bloco A</button>
-                    <button onclick="mostrarSection('B')" class="bloco" id="bloco-2">Bloco B</button>
-                    <button onclick="mostrarSection('C')" class="bloco" id="bloco-3">Bloco C</button>
-                    <button onclick="mostrarSection('D')" class="bloco" id="bloco-4">Bloco D</button>
-                    <button onclick="mostrarSection('E')" class="bloco" id="bloco-5">Bloco E</button>
-                    <button onclick="mostrarSection('F')" class="bloco" id="bloco-6">Bloco F</button>
+                    <button class="bloco" id="bloco-1">Bloco A</button>
+                    <button class="bloco" id="bloco-2">Bloco B</button>
+                    <button class="bloco" id="bloco-3">Bloco C</button>
+                    <button class="bloco" id="bloco-4">Bloco D</button>
+                    <button class="bloco" id="bloco-5">Bloco E</button>
+                    <button class="bloco" id="bloco-6">Bloco F</button>
                 </div>
             </div>
         </div>
@@ -35,130 +36,68 @@
             <h2 id="titulo-apartamento">Apartamentos Bloco A</h2>
             <section id="secao-apartamento">
                 <div id="secao-lista-maior">
-                    <button  onclick="mostrarModal('#101')"class="botao-apartamento" id="apto1-maior">A101</button>
-                    <button  onclick="mostrarModal('#102')"class="botao-apartamento" id="apto2-maior">A102</button>
-                    <button  onclick="mostrarModal('#103')"class="botao-apartamento" id="apto3-maior">A103</button>
-                    <button  onclick="mostrarModal('#201')"class="botao-apartamento" id="apto4-maior">A201</button>
-                    <button  onclick="mostrarModal('#202')"class="botao-apartamento" id="apto5-maior">A202</button>
-                    <button  onclick="mostrarModal('#203')"class="botao-apartamento" id="apto6-maior">A203</button>
-                    <button  onclick="mostrarModal('#301')"class="botao-apartamento" id="apto7-maior">A301</button>
-                    <button  onclick="mostrarModal('#302')"class="botao-apartamento" id="apto8-maior">A302</button>
-                    <button  onclick="mostrarModal('#303')"class="botao-apartamento" id="apto9-maior">A303</button>
-                    <button  onclick="mostrarModal('#401')"class="botao-apartamento" id="apto10-maior">A401</button>
-                    <button  onclick="mostrarModal('#402')"class="botao-apartamento" id="apto11-maior">A402</button>
-                    <button  onclick="mostrarModal('#403')"class="botao-apartamento" id="apto12-maior">A403</button>
+                    <!-- Apartamentos -->
                 </div>
                 <div id="secao-lista-menor">
-                    <button class="botao-apartamento" id="apto1-menor">A101</button>
-                    <button class="botao-apartamento" id="apto2-menor">A102</button>
-                    <button class="botao-apartamento" id="apto3-menor">A103</button>
-                    <button class="botao-apartamento" id="apto4-menor">A201</button>
-                    <button class="botao-apartamento" id="apto5-menor">A202</button>
-                    <button class="botao-apartamento" id="apto6-menor">A203</button>
-                    <button class="botao-apartamento" id="apto7-menor">A301</button>
-                    <button class="botao-apartamento" id="apto8-menor">A302</button>
-                    <button class="botao-apartamento" id="apto9-menor">A303</button>
-                    <button class="botao-apartamento" id="apto10-menor">A401</button>
+                    <!-- Apartamentos -->
                 </div>
             </section>
-            <section id="modal">
-                <div id="div-titulo">
-                    <h3 id="modal-titulo">Moradores #A101</h3>
-                    <img id="fechar-modal" src="../assets/fechar.png" alt="Fechar">
+
+            <section id="modal-lista">
+                <div id="div-titulo-cadastro">
+                    <h3 id="modal-titulo-lista">Moradores</h3>
+                    <img id="fechar-modal-lista" src="../assets/fechar.png" alt="Fechar">
                 </div>
                 <div id="lista-moradores">
                     <!-- Cards dos Moradores -->
-                     <div class="card-morador">
-                        <div class="card-elements">
-                            <div>
-                                <h4 class="card-titulo">Adam Smith</h4>
-                            </div>
-                            <div class="card-informacoes">
-                                <p>Telefone:</p>
-                                <p>Email:</p>
-                                <p>Status:</p>
-                                <p>Data de Entrada:</p>
-                            </div>
-                            <div class="card-buttons">
-                                <div class="card-button1">
-                                    <button id="card-editar" class="card-editar">Editar</button>
-                                </div>
-                                <div class="card-button2">
-                                    <button id="card-excluir" class="card-excluir">Excluir</button>
-                                </div>
-                            </div>
-                        </div>
-                     </div>
-                     <div class="card-morador">
-                        <div class="card-elements">
-                            <div>
-                                <h4 class="card-titulo">Adam Smith</h4>
-                            </div>
-                            <div class="card-informacoes">
-                                <p>Telefone:</p>
-                                <p>Email:</p>
-                                <p>Status:</p>
-                                <p>Data de Entrada:</p>
-                            </div>
-                            <div class="card-buttons">
-                                <div class="card-button1">
-                                    <button id="card-editar" class="card-editar">Editar</button>
-                                </div>
-                                <div>
-                                    <button id="card-excluir" class="card-excluir">Excluir</button>
-                                </div>
-                            </div>
-                        </div>
-                     </div>
-                     <div class="card-morador">
-                        <div class="card-elements">
-                            <div>
-                                <h4 class="card-titulo">Adam Smith</h4>
-                            </div>
-                            <div class="card-informacoes">
-                                <p>Telefone:</p>
-                                <p>Email:</p>
-                                <p>Status:</p>
-                                <p>Data de Entrada:</p>
-                            </div>
-                            <div class="card-buttons">
-                                <div class="card-button1">
-                                    <button id="card-editar" class="card-editar">Editar</button>
-                                </div>
-                                <div>
-                                    <button id="card-excluir" class="card-excluir">Excluir</button>
-                                </div>
-                            </div>
-                        </div>
-                     </div>
-                     <div class="card-morador">
-                        <div class="card-elements">
-                            <div>
-                                <h4 class="card-titulo">Adam Smith</h4>
-                            </div>
-                            <div class="card-informacoes">
-                                <p>Telefone:</p>
-                                <p>Email:</p>
-                                <p>Status:</p>
-                                <p>Data de Entrada:</p>
-                            </div>
-                            <div class="card-buttons">
-                                <div class="card-button1">
-                                    <button id="card-editar" class="card-editar">Editar</button>
-                                </div>
-                                <div>
-                                    <button id="card-excluir" class="card-excluir">Excluir</button>
-                                </div>
-                            </div>
-                        </div>
-                     </div>
                 </div>
-                <button id="modal-concluir">CADASTRAR NOVO MORADOR</button>
+                <h4 id="modal-vazio">Não há moradores</h4>
+                <button id="modal-concluir-lista">CADASTRAR NOVO MORADOR</button>
             </section>
+
+            <section id="modal-cadastro">
+                <div id="div-titulo-cadastro">
+                    <h3 id="modal-titulo-cadastro">Cadastrar Morador</h3>
+                    <img id="fechar-modal-cadastro" src="../assets/fechar.png" alt="Fechar">
+                </div>
+                <form id="formulario-cadastro">
+                    <div class="modal-div-secao">
+                        <div class="modal-div-input">
+                            <label class="modal-label" for="nome">Nome:</label>
+                            <input class="modal-input" id="nome" type="text" name="nome">
+                        </div>
+                        <div class="modal-div-input">
+                            <label class="modal-label" for="telefone">Telefone:</label>
+                            <input class="modal-input" id="telefone" type="text" name="telefone">
+                        </div>
+                    </div>
+                    <div class="modal-div-input">
+                        <label class="modal-label" for="email">Email:</label>
+                        <input class="modal-input" id="email" type="email" name="email">
+                    </div>
+                    <div class="modal-div-secao">
+                        <div class="modal-div-input">
+                            <label class="modal-label" for="status">Status:</label>
+                            <select name="status" class="modal-input" id="status">
+                                <option value="Proprietário">Proprietário</option>
+                                <option value="Residente">Residente</option>
+                                <option value="Visitante">Visitante</option>
+                            </select>
+                        </div>
+                        <div class="modal-div-input">
+                            <label class="modal-label" for="data">Data de Entrada:</label>
+                            <input class="modal-input" id="data" type="date" name="data">
+                        </div>
+                    </div>
+                </form>
+                <div id="modal-div-botoes">
+                    <button id="modal-concluir-cadastro-salvar">CADASTRAR</button>
+                    <button id="modal-concluir-cadastro-cancelar">CANCELAR</button>
+                </div>
+            </section>
+
             <section id="blur"></section>
         </div>
     </main>
-
-    <script src="../js/script.js"></script>
 </body>
 </html>

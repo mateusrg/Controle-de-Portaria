@@ -32,7 +32,7 @@ async function listarPorModelo(modelo) {
     return veiculos;
 }
 
-export {
+export default {
     listarTodos,
     listarPorMorador,
     listarPorModelo

@@ -75,15 +75,6 @@ a:hover {
   width: 100%;
 }
 
-#bloco-a-2,
-#bloco-b-2,
-#bloco-c-2,
-#bloco-d-2,
-#bloco-e-2,
-#bloco-f-2 {
-  display: none;
-}
-
 .texto-bloco {
   font-family: "Krona One", sans-serif;
   color: black;

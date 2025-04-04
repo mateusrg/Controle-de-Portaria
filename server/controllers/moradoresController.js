@@ -114,7 +114,7 @@ exports.pesquisarMoradores = (req, res) => {
 exports.atualizarMorador = (req, res) => {
     const { idApartamento, nome, telefone, email, status, criadoEm } = req.body;
     const { idMorador } = req.params;
-    const query = 'UPDATE Moradores SET id_apartamento = ? WHERE id_morador = ?';
+    const query = 'UPDATE Moradores SET id_apartamento = ?, nome = ?, telefone = ?, email = ?, status = ?, criado_em = ? WHERE id_morador = ?';
     const params = [idApartamento, nome, telefone, email, status, criadoEm, idMorador];
 
     connection.query(query, params, (err, results) => {
