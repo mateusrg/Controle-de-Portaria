@@ -427,15 +427,23 @@ main {
     height: 11.71vh;
 }
 
-.card-titulo{
+.card-titulo {
     font-size: 1.5vw;
     color: #FFFFFF;
     font-family: "Krona One", sans-serif;
     font-weight: 500;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    max-width: 10vw;
     text-align: start;
+    max-width: 10vw;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    line-clamp: 2;
+    box-orient: vertical;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card-div-imagem {
@@ -457,7 +465,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    width: 75%;
+    width: 14vw;
 }
 
 .card-texto {
@@ -465,6 +473,11 @@ main {
     color: #000000;
     font-family: "Roboto", sans-serif;
     font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
 }
 
 .card-buttons{

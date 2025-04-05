@@ -10,51 +10,106 @@ import Veiculos from './funcoes/veiculo.js';
 
 // Vagas
 
+const inicioVagas = {
+  A: 0,
+  B: 0,
+  C: 0,
+  D: 0,
+  E: 0,
+  F: 0,
+};
+
 export async function mostrarVagas() {
-    const listaVagasA = document.getElementById("bloco-a");
-    const listaVagasB = document.getElementById("bloco-b");
-    const listaVagasC = document.getElementById("bloco-c");
-    const listaVagasD = document.getElementById("bloco-d");
-    const listaVagasE = document.getElementById("bloco-e");
-    const listaVagasF = document.getElementById("bloco-f");
+  const listaVagasA = document.getElementById("bloco-a");
+  const listaVagasB = document.getElementById("bloco-b");
+  const listaVagasC = document.getElementById("bloco-c");
+  const listaVagasD = document.getElementById("bloco-d");
+  const listaVagasE = document.getElementById("bloco-e");
+  const listaVagasF = document.getElementById("bloco-f");
 
-    const boxes = await Boxes.listarTodos();
+  const boxes = await Boxes.listarTodos();
 
-    listaVagasA.innerHTML = '';
-    listaVagasB.innerHTML = '';
-    listaVagasC.innerHTML = '';
-    listaVagasD.innerHTML = '';
-    listaVagasE.innerHTML = '';
-    listaVagasF.innerHTML = '';
+  listaVagasA.innerHTML = '';
+  listaVagasB.innerHTML = '';
+  listaVagasC.innerHTML = '';
+  listaVagasD.innerHTML = '';
+  listaVagasE.innerHTML = '';
+  listaVagasF.innerHTML = '';
 
-    boxes.forEach((box) => {
+  const larguraTela = window.innerWidth;
+  const vagasPorTela = Math.max(3, Math.floor(larguraTela / 160));
+
+  const blocos = {
+    A: [],
+    B: [],
+    C: [],
+    D: [],
+    E: [],
+    F: [],
+  };
+
+  boxes.forEach(box => {
+    blocos[box.bloco].push(box);
+  });
+
+  for (const bloco in blocos) {
+    const lista = blocos[bloco];
+    const inicio = inicioVagas[bloco] * vagasPorTela;
+    const final = inicio + vagasPorTela;
+    const vagasVisiveis = lista.slice(inicio, final);
+
+    const secao = document.getElementById(`bloco-${bloco.toLowerCase()}`);
+
+    vagasVisiveis.forEach(box => {
       const divBox = document.createElement("div");
       divBox.classList.add("vaga");
-      divBox.innerHTML = `
-      <p class="texto-vaga-desocupada">${box.bloco}${box.numeracao}</p>
-      `;
 
-      switch (box.bloco) {
-        case "A":
-          listaVagasA.appendChild(divBox);
-          break;
-        case "B":
-          listaVagasB.appendChild(divBox);
-          break;
-        case "C":
-          listaVagasC.appendChild(divBox);
-          break;
-        case "D":
-          listaVagasD.appendChild(divBox);
-          break;
-        case "E":
-          listaVagasE.appendChild(divBox);
-          break;
-        case "F":
-          listaVagasF.appendChild(divBox);
-          break;
-      }
+      const texto = document.createElement("p");
+      texto.className = "texto-vaga-desocupada";
+      texto.textContent = `${box.bloco}${box.numeracao}`;
+      divBox.appendChild(texto);
+
+      secao.appendChild(divBox);
     });
+
+    // Setas
+
+    const totalVagas = blocos[bloco].length;
+    const totalPaginas = Math.ceil(totalVagas / vagasPorTela);
+    const paginaAtual = inicioVagas[bloco];
+
+    const setaVolta = document.querySelector(`.seta-volta.bloco-${bloco.toLowerCase()}`);
+    const setaProximo = document.querySelector(`.seta-proximo.bloco-${bloco.toLowerCase()}`);
+
+    if (paginaAtual === 0) {
+      setaVolta.style.visibility = "hidden";
+    } else {
+      setaVolta.style.visibility = "visible";
+    }
+
+    if (paginaAtual >= totalPaginas - 1) {
+      setaProximo.style.visibility = "hidden";
+    } else {
+      setaProximo.style.visibility = "visible";
+    }
+
+    setaVolta.onclick = () => {
+      if (inicioVagas[bloco] > 0) {
+        inicioVagas[bloco]--;
+        mostrarVagas();
+      }
+    };
+
+    setaProximo.onclick = () => {
+      if (inicioVagas[bloco] < totalPaginas - 1) {
+        console.log(inicioVagas[bloco])
+        inicioVagas[bloco]++;
+        console.log(inicioVagas[bloco])
+        mostrarVagas();
+      }
+    };
+  }
 }
 
 document.addEventListener("DOMContentLoaded", mostrarVagas);
+window.addEventListener('resize', mostrarVagas);

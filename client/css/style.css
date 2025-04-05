@@ -81,7 +81,7 @@ a:hover {
   font-size: 25px;
 }
 
-.secao-vagas {
+.secao-carrossel {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,9 +89,17 @@ a:hover {
   width: 100%;
 }
 
+.secao-vagas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+  width: auto;
+}
+
 .vaga {
   height: 23.33vh;
-  width: 9.16vw;
+  min-width: 110px;
   background-color: #c6eabf;
   border: 2px dashed black;
   border-radius: 10px;
@@ -136,10 +144,19 @@ a:hover {
 }
 
 .seta-proximo {
+  visibility: hidden;
   width: 2.22vw;
+  cursor: pointer;
 }
 
 .seta-volta {
+  visibility: hidden;
   width: 2.22vw;
   transform: rotate(180deg);
+  cursor: pointer;
+}
+
+.seta-proximo:hover, .seta-volta:hover {
+  transition: filter 0.5s ease-in-out;
+  filter: invert(40%);
 }
