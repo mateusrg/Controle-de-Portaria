@@ -193,49 +193,53 @@ class Veiculo {
             return null;
         }
 
+        const veiculo = result.data;
+
         return new Veiculo({
-            idVeiculo: result['id_veiculo'],
-            idMorador: result['id_morador'],
-            idBox: result['id_box'],
-            placa: result['placa'],
-            modelo: result['modelo'],
-            cor: result['cor'],
-            criadoEm: result['criado_em'],
-            idApartamento: result['id_apartamento'],
-            nome: result['nome'],
-            telefone: result['telefone'],
-            email: result['email'],
-            status: result['status'],
-            moradorCriadoEm: result['morador_criado_em'],
-            bloco: result['bloco'],
-            numeracao: result['numeracao']
+            idVeiculo: veiculo['id_veiculo'],
+            idMorador: veiculo['id_morador'],
+            idBox: veiculo['id_box'],
+            placa: veiculo['placa'],
+            modelo: veiculo['modelo'],
+            cor: veiculo['cor'],
+            criadoEm: veiculo['criado_em'],
+            idApartamento: veiculo['id_apartamento'],
+            nome: veiculo['nome'],
+            telefone: veiculo['telefone'],
+            email: veiculo['email'],
+            status: veiculo['status'],
+            moradorCriadoEm: veiculo['morador_criado_em'],
+            bloco: veiculo['bloco'],
+            numeracao: veiculo['numeracao']
         });
     }
 
     static async selecionarPorBox(IdBox) {
-        const response = await fetch(`${urlBase}/veiculo/selecionarPorId/${IdBox}`);
+        const response = await fetch(`${urlBase}/veiculo/selecionarPorBox/${IdBox}`);
         const result = await response.json();
         
-        if (!result.success) {
+        if (!result.success || result.data == null) {
             return null;
         }
 
+        const veiculo = result.data;
+
         return new Veiculo({
-            idVeiculo: result['id_veiculo'],
-            idMorador: result['id_morador'],
-            idBox: result['id_box'],
-            placa: result['placa'],
-            modelo: result['modelo'],
-            cor: result['cor'],
-            criadoEm: result['criado_em'],
-            idApartamento: result['id_apartamento'],
-            nome: result['nome'],
-            telefone: result['telefone'],
-            email: result['email'],
-            status: result['status'],
-            moradorCriadoEm: result['morador_criado_em'],
-            bloco: result['bloco'],
-            numeracao: result['numeracao']
+            idVeiculo: veiculo['id_veiculo'],
+            idMorador: veiculo['id_morador'],
+            idBox: veiculo['id_box'],
+            placa: veiculo['placa'],
+            modelo: veiculo['modelo'],
+            cor: veiculo['cor'],
+            criadoEm: veiculo['criado_em'],
+            idApartamento: veiculo['id_apartamento'],
+            nome: veiculo['nome'],
+            telefone: veiculo['telefone'],
+            email: veiculo['email'],
+            status: veiculo['status'],
+            moradorCriadoEm: veiculo['morador_criado_em'],
+            bloco: veiculo['bloco'],
+            numeracao: veiculo['numeracao']
         });
     }
 

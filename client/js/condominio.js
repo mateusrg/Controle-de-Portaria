@@ -140,7 +140,6 @@ document.getElementById("blur").addEventListener("click", () => {
     const blur = document.getElementById("blur");
     const modalLista = document.getElementById("modal-lista");
     const modalCadastro = document.getElementById("modal-cadastro");
-    console.log(modalLista.style.display == "flex")
     if (modalLista.style.display == "flex") {
         modalLista.style.display = "none";
         blur.style.display = "none";

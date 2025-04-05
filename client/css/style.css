@@ -7,6 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 header {
@@ -101,7 +102,7 @@ a:hover {
   height: 23.33vh;
   min-width: 110px;
   background-color: #c6eabf;
-  border: 2px dashed black;
+  border: 3px dashed black;
   border-radius: 10px;
   padding-top: 5vh;
   padding-bottom: 5vh;
@@ -110,6 +111,12 @@ a:hover {
   align-items: center;
   justify-content: center;
   position: relative;
+  cursor: pointer;
+}
+
+.vaga:hover {
+  transition: filter 0.5s ease-in-out;
+  filter: brightness(80%);
 }
 
 .carro {
@@ -159,4 +166,423 @@ a:hover {
 .seta-proximo:hover, .seta-volta:hover {
   transition: filter 0.5s ease-in-out;
   filter: invert(40%);
+}
+
+#blur {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#modal-tela {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 87vh;
+  width: 100vw;
+  background-color: #A9B7B8;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 3;
+  overflow-y: auto;
+}
+
+#modal-div-titulo {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#modal-div-titulo-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2vw;
+}
+
+#modal-seta-volta {
+  width: 3.93vw;
+}
+
+#modal-titulo {
+  font-family: "Krona One", sans-serif;
+  color: black;
+  font-size: 2.47vw;
+}
+
+#modal-botao-cadastrar {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  border: none;
+  background-color: #272829;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  height: 4.1vh;
+  width: 20vw;
+  font-size: 0.8vw;
+  border-radius: 10px;
+  cursor: pointer;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+#modal-pesquisa {
+  display: none;
+  font-size: 1vw;
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 25vw;
+  padding: 1vh 0.5vw;
+}
+
+#modal-botao-cadastrar:hover {
+  transition: background 0.5s ease-in-out;
+  background-color: #3e4041;
+}
+
+#lista-vazia {
+  display: none;
+  font-size: 1.5vw;
+  color: #000000;
+  font-family: "Krona One", sans-serif;
+  padding-top: 20vh;
+}
+
+#lista-veiculos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.veiculo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #000000;
+  width: 95%;
+  padding: 2vh 0;
+  gap: 3vw;
+  position: relative;
+}
+
+.veiculo:hover, .morador:hover {
+  transition: filter 0.5s ease-in-out, background 0.5s ease-in-out;
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
+  background-color: #1a7193;
+  cursor: pointer;
+}
+
+.modal-div-imagem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #D9D9D9;
+  border-radius: 50%;
+  width: 7.22vw;
+  height: 7.22vw;
+}
+
+.modal-imagem {
+  width: 4.23vw;
+}
+
+.modal-div-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1vh;
+}
+
+.modal-titulo-carro {
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 2.5vw;
+  margin: 0;
+}
+
+.modal-info-carro {
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 1.2vw;
+  margin: 0;
+}
+
+.modal-div-cor {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1vw;
+}
+
+.modal-input-cor-lista {
+  border: 2px solid black;
+  border-radius: 8px;
+  width: 2vw;
+  height: 2vw;
+  padding: 0;
+  background: none;
+  appearance: none;  
+}
+
+.modal-editar {
+  position: absolute;
+  width: 6vw;
+  top:50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+}
+
+#lista-moradores {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.morador {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #000000;
+  width: 95%;
+  padding: 2vh 0;
+  gap: 3vw;
+  position: relative;
+}
+
+.morador-div-imagem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #D9D9D9;
+  border-radius: 50%;
+  width: 7.22vw;
+  height: 7.22vw;
+}
+
+.morador-imagem {
+  width: 4.23vw;
+}
+
+.morador-div-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1vh;
+}
+
+.morador-titulo-nome {
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 2.5vw;
+  margin: 0;
+}
+
+.morador-info {
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 1.2vw;
+  margin: 0;
+}
+
+#morador-div-ap {
+  position: absolute;
+  top:50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2vh;
+}
+
+.morador-info-ap {
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 1.2vw;
+  margin: 0;
+  text-align: end;
+}
+
+#modal-cadastro {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  background-color: #a8b4ac;
+  padding-bottom: 2vh;
+  width: 49.93vw;
+  height: 75vh;
+  border-radius: 10px;
+  z-index: 5;
+}
+
+#div-titulo-cadastro {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #183D41;
+  width: 100%;
+  height: 8.3vh;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#fechar-modal-cadastro {
+  width: 2.5vw;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  margin-right: 0.5vw;
+  cursor: pointer;
+  cursor: pointer;
+}
+
+#fechar-modal-cadastro:hover {
+  filter: brightness(70%);
+}
+
+#modal-titulo-cadastro{
+  font-size: 1.5vw;
+  color: white;
+  font-family: "Krona One", sans-serif;
+}
+
+#formulario-cadastro {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  height: 50vh;
+  width: 80%;
+}
+
+.modal-div-input {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1vw;
+  width: 100%;
+}
+
+.modal-label {
+  font-size: 1.5vw;
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.modal-input {
+  font-size: 1.5vw;
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 100%;
+  padding: 0.5vh 0.5vw;
+}
+
+#nome {
+  width: 71%;
+  cursor: pointer;
+}
+
+#nome:hover {
+  transition: filter 0.5s ease-in-out;
+  filter: brightness(80%);
+}
+
+#cor {
+  width: 2.5vw;
+  height: 2.5vw;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 0;
+  background: none;
+  appearance: none; 
+}
+
+#data {
+  width: 13vw;
+}
+
+#modal-div-botoes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+
+#modal-concluir-cadastro-salvar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  background-color: #272829;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.04vw;
+  font-weight: 500;
+  color: #FFFFFF;
+  width: 18.26vw;
+  height: 4.1vh;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#modal-concluir-cadastro-cancelar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  background-color: #a8b4ac;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.04vw;
+  font-weight: 500;
+  color: #000000;
+  width: 18.26vw;
+  height: 4.1vh;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#modal-concluir-cadastro-salvar:hover {
+  transition: background 0.5s ease-in-out;
+  background-color: #3e4041;
+}
+
+#modal-concluir-cadastro-cancelar:hover {
+  transition: border 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
+  border-color: #3e4041;
+  color: #3e4041;
 }

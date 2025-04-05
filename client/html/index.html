@@ -122,5 +122,72 @@
       </section>
     </section>
   </section>
+
+  <section id="modal-tela">
+    <div id="modal-div-titulo">
+      <div id="modal-div-titulo-2">
+        <img id="modal-seta-volta" src="../assets/seta-volta.png" alt="Seta Voltar">
+        <h2 id="modal-titulo">Estacionar Carro</h2>
+      </div>
+      <button id="modal-botao-cadastrar">CADASTRAR NOVO CARRO</button>
+      <input type="search" id="modal-pesquisa" placeholder="Pesquisar">
+    </div>
+    <h4 id="lista-vazia">Não há veículos</h4>
+    <section id="lista-veiculos">
+      <!-- Veículos apareceram aqui -->
+    </section>
+    <section id="lista-moradores">
+      <div class="morador" draggable="true">
+        <div class="morador-div-imagem">
+          <img class="morador-imagem" src="../assets/morador.png" alt="Morador">
+        </div>
+        <div class="morador-div-info">
+          <h6 class="morador-titulo-nome">Mateus Batata - Proprietário</h6>
+          <p class="morador-info">(51) 99999-9999</p>
+          <p class="morador-info">mateus.batata@gmail.com</p>
+        </div>
+        <div id="morador-div-ap">
+          <p class="morador-info-ap">Bloco A</p>
+          <p class="morador-info-ap">Apartamento 101</p>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section id="modal-cadastro">
+    <div id="div-titulo-cadastro">
+        <h3 id="modal-titulo-cadastro">Novo Carro</h3>
+        <img id="fechar-modal-cadastro" src="../assets/fechar.png" alt="Fechar">
+    </div>
+    <form id="formulario-cadastro">
+        <div class="modal-div-input">
+            <label class="modal-label" for="nome">Nome do Dono:</label>
+            <input class="modal-input" id="nome" type="button" name="nome" value="Selecione uma opção                                >">
+        </div>
+        <div class="modal-div-input">
+            <label class="modal-label" for="placa">Placa:</label>
+            <input class="modal-input" id="placa" type="text" name="placa">
+        </div>
+        <div class="modal-div-input">
+            <label class="modal-label" for="modelo">Modelo:</label>
+            <input class="modal-input" id="modelo" type="text" name="modelo">
+        </div>
+        <div class="modal-div-input">
+            <label class="modal-label" for="cor">Cor:</label>
+            <input class="modal-input" id="cor" type="color" name="cor">
+        </div>
+        <div class="modal-div-input">
+            <label class="modal-label" for="data">Data de Entrada:</label>
+            <input class="modal-input" id="data" type="date" name="data">
+        </div>
+        </div>
+    </form>
+    <div id="modal-div-botoes">
+        <button id="modal-concluir-cadastro-salvar">CADASTRAR</button>
+        <button id="modal-concluir-cadastro-cancelar">CANCELAR</button>
+    </div>
+  </section>
+
+  <section id="blur"></section>
 </body>
 </html>
