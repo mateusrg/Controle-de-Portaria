@@ -8,6 +8,8 @@ import Boxes from './funcoes/box.js';
 import Moradores from './funcoes/morador.js';
 import Veiculos from './funcoes/veiculo.js';
 
+let mostrandoVagas = false;
+
 // Vagas
 
 const inicioVagas = {
@@ -20,6 +22,8 @@ const inicioVagas = {
 };
 
 export async function mostrarVagas() {
+  if (mostrandoVagas) return;
+  mostrandoVagas = true;
   const listaVagasA = document.getElementById("bloco-a");
   const listaVagasB = document.getElementById("bloco-b");
   const listaVagasC = document.getElementById("bloco-c");
@@ -134,7 +138,9 @@ export async function mostrarVagas() {
         mostrarVagas();
       }
     };
+
   }
+  mostrandoVagas = false;
 }
 
 export async function listarVeiculos (idBox, bloco, numeracao) {
