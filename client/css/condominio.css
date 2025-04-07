@@ -835,12 +835,13 @@ div:has(> #email) {
         gap: 2vh;
         flex-wrap: nowrap;
         overflow-x: auto;
-        padding-top: 65vh;
+        padding-top: 45vh;
         padding-bottom: 5vh;
     }
     
     #modal-vazio {
         font-size: 3vw;
+        margin-top: -50vh;
     }
 
     .card-morador {

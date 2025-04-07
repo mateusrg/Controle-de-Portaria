@@ -273,14 +273,17 @@ export async function edicao(idMorador, idApartamento, bloco, numeracao) {
 
     const moradores = await Moradores.listarPorApartamento(idApartamento);
 
-    const verificacaoProprietario = moradores.some(morador => morador.status === "Proprietário");
+    const moradorSelecionado = await Morador.selecionarPorId(idMorador);
 
-    if (status === "Proprietário" && verificacaoProprietario) {
+    const outroProprietario = moradores.find(morador =>
+        morador.status === "Proprietário" && morador.idMorador !== idMorador
+    );
+
+    if (status === "Proprietário" && outroProprietario) {
         alert("O apartamento não pode possuir mais de um proprietário");
         return;
-    };
+    }
     
-    const moradorSelecionado = await Morador.selecionarPorId(idMorador);
     const moradorEditado = await moradorSelecionado.editar(idApartamento, nome, telefone, email, status, criadoEm);
 
     const modalCadastro = document.getElementById("modal-cadastro");

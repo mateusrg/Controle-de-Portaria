@@ -710,4 +710,68 @@ a:hover {
   .modal-editar, .modal-excluir {
     width: 7vw;
   }
+
+  #modal-cadastro {
+    width: 70vw;
+    height: 65vh;
+}
+
+#div-titulo-cadastro {
+    width: 100%;
+    height: 8.3vh;
+}
+
+#fechar-modal-cadastro {
+    width: 4.5vw;
+    margin-right: 1.5vw;
+}
+
+#modal-titulo-cadastro{
+    font-size: 3vw;
+}
+
+#formulario-cadastro {
+    height: 30vh;
+}
+
+.modal-div-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1vw;
+  width: 100%;
+}
+
+.modal-label {
+    font-size: 4vw;
+}
+
+.modal-input {
+    font-size: 2.5vw;
+    width: 25vw;
+}
+
+#email {
+    width: 97%;
+}
+
+#data {
+    width: 20vw;
+}
+
+#cor {
+  width: 6vw;
+  height: 6vw;
+}
+
+#modal-concluir-cadastro-salvar {
+    font-size: 2.5vw;
+    width: 25vw;
+}
+
+#modal-concluir-cadastro-cancelar {
+    font-size: 2.5vw;
+    width: 25vw;
+}
 }
