@@ -387,7 +387,6 @@ async function edicao (idVeiculo, idBox) {
   const modalTela = document.getElementById("modal-tela");
   const modalCadastro = document.getElementById("modal-cadastro");
   const blur = document.getElementById("blur");
-  console.log("Foi")
   console.log(modalTela)
   modalTela.style.display = "none";
   modalCadastro.style.display = "none";
