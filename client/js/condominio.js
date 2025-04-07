@@ -128,6 +128,28 @@ export async function mostrarModal(apartamento, bloco, numeracao) {
     
             listaMoradores.appendChild(card);
         });
+
+        if (window.innerWidth <= 600) {
+            if ( moradores.length === 1) {
+                document.querySelector('#lista-moradores').style.paddingTop = '0px';
+            } else if (moradores.length === 2) {
+                document.querySelector('#lista-moradores').style.paddingTop = '18vh';
+            } else {
+                document.querySelector('#lista-moradores').style.paddingTop = '47vh';
+            }
+        }
+        
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 600) {
+                if ( moradores.length === 1) {
+                    document.querySelector('#lista-moradores').style.paddingTop = '0px';
+                } else if (moradores.length === 2) {
+                    document.querySelector('#lista-moradores').style.paddingTop = '18vh';
+                } else {
+                    document.querySelector('#lista-moradores').style.paddingTop = '47vh';
+                }
+            }
+        });
     }
 }
 
