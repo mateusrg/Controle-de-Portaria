@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inder&family=Krona+One&&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header>
         <h1>Controle de Portaria</h1>
         <div id="div-nav">
@@ -18,85 +19,119 @@
           <a href="index.html">Veículos</a>
         </div>
       </header>
+
     <main>
+
         <div id="div-condominio">
+
             <h2 id="titulo-condominio">Condomínio</h2>
             <div id="secao-condominio">
                 <div id="secao-blocos">
+
                     <button class="bloco" id="bloco-1">Bloco A</button>
                     <button class="bloco" id="bloco-2">Bloco B</button>
                     <button class="bloco" id="bloco-3">Bloco C</button>
                     <button class="bloco" id="bloco-4">Bloco D</button>
                     <button class="bloco" id="bloco-5">Bloco E</button>
                     <button class="bloco" id="bloco-6">Bloco F</button>
+
                 </div>
             </div>
+
         </div>
+
         <div id="div-apartamento">
+
             <h2 id="titulo-apartamento">Apartamentos Bloco A</h2>
+
             <section id="secao-apartamento">
+
                 <div id="secao-lista-maior">
                     <!-- Apartamentos -->
                 </div>
+
                 <div id="secao-lista-menor">
                     <!-- Apartamentos -->
                 </div>
+
             </section>
 
             <section id="modal-lista">
+
                 <div id="div-titulo-cadastro">
                     <h3 id="modal-titulo-lista">Moradores</h3>
                     <img id="fechar-modal-lista" src="../assets/fechar.png" alt="Fechar">
                 </div>
+
                 <div id="lista-moradores">
                     <!-- Cards dos Moradores -->
                 </div>
+
                 <h4 id="modal-vazio">Não há moradores</h4>
+
                 <button id="modal-concluir-lista">CADASTRAR NOVO MORADOR</button>
+
             </section>
 
             <section id="modal-cadastro">
+
                 <div id="div-titulo-cadastro">
                     <h3 id="modal-titulo-cadastro">Cadastrar Morador</h3>
                     <img id="fechar-modal-cadastro" src="../assets/fechar.png" alt="Fechar">
                 </div>
+
                 <form id="formulario-cadastro">
+
                     <div class="modal-div-secao">
+
                         <div class="modal-div-input">
                             <label class="modal-label" for="nome">Nome:</label>
                             <input class="modal-input" id="nome" type="text" name="nome">
                         </div>
+
                         <div class="modal-div-input">
                             <label class="modal-label" for="telefone">Telefone:</label>
                             <input class="modal-input" id="telefone" type="text" name="telefone">
                         </div>
+
                     </div>
+
                     <div class="modal-div-input">
                         <label class="modal-label" for="email">Email:</label>
                         <input class="modal-input" id="email" type="email" name="email">
                     </div>
+
                     <div class="modal-div-secao">
+
                         <div class="modal-div-input">
+
                             <label class="modal-label" for="status">Status:</label>
                             <select name="status" class="modal-input" id="status">
                                 <option value="Proprietário">Proprietário</option>
                                 <option value="Residente">Residente</option>
                                 <option value="Visitante">Visitante</option>
                             </select>
+
                         </div>
+
                         <div class="modal-div-input">
                             <label class="modal-label" for="data">Data de Entrada:</label>
                             <input class="modal-input" id="data" type="date" name="data">
                         </div>
+
                     </div>
+
                 </form>
+
                 <div id="modal-div-botoes">
                     <button id="modal-concluir-cadastro-salvar">CADASTRAR</button>
                     <button id="modal-concluir-cadastro-cancelar">CANCELAR</button>
                 </div>
+
             </section>
 
             <section id="blur"></section>
+            
         </div>
     </main>
 </body>

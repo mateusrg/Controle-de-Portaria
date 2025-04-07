@@ -1,3 +1,5 @@
+// Imports
+
 import Apartamento from '../models/Apartamento.js';
 import Box from '../models/Box.js';
 import Morador from '../models/Morador.js';
@@ -10,6 +12,9 @@ import Veiculos from './funcoes/veiculo.js';
 
 // Condomínio
 
+// Listagem
+
+// // Listagem de apartamentos
 export async function mostrarSection(bloco) {
     const apartamentos = document.getElementById("div-apartamento");
     const titulo = document.getElementById("titulo-apartamento");
@@ -50,6 +55,7 @@ export async function mostrarSection(bloco) {
     titulo.textContent = `Apartamentos Bloco ${bloco}`;
 }
 
+// // Evento para os blocos
 document.getElementById("bloco-1").addEventListener("click", () => mostrarSection('A'));
 document.getElementById("bloco-2").addEventListener("click", () => mostrarSection('B'));
 document.getElementById("bloco-3").addEventListener("click", () => mostrarSection('C'));
@@ -57,6 +63,9 @@ document.getElementById("bloco-4").addEventListener("click", () => mostrarSectio
 document.getElementById("bloco-5").addEventListener("click", () => mostrarSection('E'));
 document.getElementById("bloco-6").addEventListener("click", () => mostrarSection('F'));
 
+// Navegação
+
+// // Botão para abrir modal de moradores
 export async function mostrarModal(apartamento, bloco, numeracao) {
     const blur = document.getElementById("blur");
     const modalLista = document.getElementById("modal-lista");
@@ -122,6 +131,7 @@ export async function mostrarModal(apartamento, bloco, numeracao) {
     }
 }
 
+// // Botão para fechar lista de moradores
 document.getElementById("fechar-modal-lista").addEventListener("click", () => {
     const blur = document.getElementById("blur");
     const modalLista = document.getElementById("modal-lista");
@@ -129,6 +139,7 @@ document.getElementById("fechar-modal-lista").addEventListener("click", () => {
     blur.style.display = "none";
 })
 
+// // Botão para fechar cadastro de moradores
 document.getElementById("fechar-modal-cadastro").addEventListener("click", () => {
     const modalLista = document.getElementById("modal-lista");
     const modalCadastro = document.getElementById("modal-cadastro");
@@ -136,6 +147,7 @@ document.getElementById("fechar-modal-cadastro").addEventListener("click", () =>
     modalCadastro.style.display = "none";
 })
 
+// // Blur
 document.getElementById("blur").addEventListener("click", () => {
     const blur = document.getElementById("blur");
     const modalLista = document.getElementById("modal-lista");
@@ -149,6 +161,7 @@ document.getElementById("blur").addEventListener("click", () => {
     }
 })
 
+// // Botão de cancelar do cadastro de moradores
 document.getElementById("modal-concluir-cadastro-cancelar").addEventListener("click", () => {
     const modalLista = document.getElementById("modal-lista");
     const modalCadastro = document.getElementById("modal-cadastro");
@@ -156,6 +169,7 @@ document.getElementById("modal-concluir-cadastro-cancelar").addEventListener("cl
     modalLista.style.display = "flex";
 })
 
+// // Botão para abrir cadastro de moradores
 export function cadastrarMorador(apartamento, bloco, numeracao) {
     const modalLista = document.getElementById("modal-lista");
     const modalCadastro = document.getElementById("modal-cadastro");
@@ -188,29 +202,7 @@ export function cadastrarMorador(apartamento, bloco, numeracao) {
     botaoCadastrar.textContent = "CADASTRAR";
 }
 
-export async function cadastro(idApartamento, bloco, numeracao) {
-    const nome = document.getElementById("nome").value;
-    const telefone = document.getElementById("telefone").value;
-    const email = document.getElementById("email").value;
-    const status = document.getElementById("status").value;
-    const criadoEm = document.getElementById("data").value;
-
-    const moradores = await Moradores.listarPorApartamento(idApartamento);
-
-    const verificacaoProprietario = moradores.some(morador => morador.status === "Proprietário");
-
-    if (status === "Proprietário" && verificacaoProprietario) {
-        alert("O apartamento não pode possuir mais de um proprietário");
-        return;
-    };
-    
-    const morador = await Morador.cadastrar(idApartamento, nome, telefone, email, status, criadoEm);
-
-    const modalCadastro = document.getElementById("modal-cadastro");
-    modalCadastro.style.display = "none";
-    mostrarModal(idApartamento, bloco, numeracao);
-}
-
+// Botão para abrir edição de moradores
 export async function editarMorador(idMorador, idApartamento, bloco, numeracao) {
     const modalLista = document.getElementById("modal-lista");
     const modalCadastro = document.getElementById("modal-cadastro");
@@ -245,6 +237,33 @@ export async function editarMorador(idMorador, idApartamento, bloco, numeracao) 
     botaoCadastrar.textContent = "SALVAR";
 }
 
+// Cadastrar e Editar
+
+// // Cadastro de moradores
+export async function cadastro(idApartamento, bloco, numeracao) {
+    const nome = document.getElementById("nome").value;
+    const telefone = document.getElementById("telefone").value;
+    const email = document.getElementById("email").value;
+    const status = document.getElementById("status").value;
+    const criadoEm = document.getElementById("data").value;
+
+    const moradores = await Moradores.listarPorApartamento(idApartamento);
+
+    const verificacaoProprietario = moradores.some(morador => morador.status === "Proprietário");
+
+    if (status === "Proprietário" && verificacaoProprietario) {
+        alert("O apartamento não pode possuir mais de um proprietário");
+        return;
+    };
+    
+    const morador = await Morador.cadastrar(idApartamento, nome, telefone, email, status, criadoEm);
+
+    const modalCadastro = document.getElementById("modal-cadastro");
+    modalCadastro.style.display = "none";
+    mostrarModal(idApartamento, bloco, numeracao);
+}
+
+// Edição de moradores
 export async function edicao(idMorador, idApartamento, bloco, numeracao) {
     const nome = document.getElementById("nome").value;
     const telefone = document.getElementById("telefone").value;
@@ -269,6 +288,9 @@ export async function edicao(idMorador, idApartamento, bloco, numeracao) {
     mostrarModal(idApartamento, bloco, numeracao);
 }
 
+// Exclusão
+
+// Remoção de moradores
 export async function excluirMorador(idMorador, idApartamento) {
     const moradorSelecionado = await Morador.selecionarPorId(idMorador);
     const apartamento = await Apartamento.selecionarPorId(idApartamento);
@@ -276,5 +298,6 @@ export async function excluirMorador(idMorador, idApartamento) {
     mostrarModal(apartamento.idApartamento, apartamento.bloco, apartamento.numeracao);
 }
 
+// Events
 window.editarMorador = editarMorador;
 window.excluirMorador = excluirMorador;

@@ -292,7 +292,7 @@ class Veiculo {
 
     async editar(idMorador, idBox, placa, modelo, cor, criadoEm) {
         const data = { idMorador: idMorador, idBox: idBox, placa: placa, modelo: modelo, cor: cor, criadoEm: criadoEm };
-        const response = await fetch(`${urlBase}/morador/${this.#idVeiculo}`, {
+        const response = await fetch(`${urlBase}/veiculo/${this.#idVeiculo}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data),
@@ -311,7 +311,7 @@ class Veiculo {
     }
 
     async deletar() {
-        const response = await fetch(`${urlBase}/morador/${this.#idVeiculo}`, {
+        const response = await fetch(`${urlBase}/veiculo/${this.#idVeiculo}`, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
         });

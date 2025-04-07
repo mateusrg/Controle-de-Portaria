@@ -10,8 +10,8 @@ router.get('/veiculo/selecionarPorBox/:idBox', veiculosController.selecionarVeic
 router.get('/veiculo/selecionarPorPlaca/:placa', veiculosController.selecionarVeiculoPorPlaca);
 router.get('/veiculo/selecionarPorModelo/:modelo', veiculosController.listarVeiculosPorModelo);
 router.put('/veiculo/:idVeiculo', veiculosController.atualizarVeiculo);
-router.put('/veiculo/setIdMorador', veiculosController.setIdMoradorVeiculo);
-router.put('/veiculo/setIdBox', veiculosController.setIdBoxVeiculo);
+router.put('/veiculo/setIdMorador/:idVeiculo', veiculosController.setIdMoradorVeiculo);
+router.put('/veiculo/setIdBox/:idVeiculo', veiculosController.setIdBoxVeiculo);
 router.put('/veiculo/setPlaca', veiculosController.setPlacaVeiculo);
 router.put('/veiculo/setModelo', veiculosController.setModeloVeiculo);
 router.put('/veiculo/setCor', veiculosController.setCorVeiculo);
